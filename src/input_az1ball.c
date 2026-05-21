@@ -79,6 +79,9 @@ static int az1ball_read_report(const struct device *dev) {
         dy *= cfg->scale_y;
     }
 
+    dx /= 4;
+    dy /= 4;
+
     if (dx != 0 || dy != 0) {
         input_report_rel(dev, INPUT_REL_X, dx, false, K_FOREVER);
         input_report_rel(dev, INPUT_REL_Y, dy, true, K_FOREVER);
